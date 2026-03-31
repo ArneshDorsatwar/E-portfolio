@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnesh Dorsatwar | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated background grid -->
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">[</span>AD<span class="logo-bracket">]</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="#experience" data-text="Experience">Experience</a></li>
+                <li><a href="#projects" data-text="Projects">Projects</a></li>
+                <li><a href="#skills" data-text="Skills">Skills</a></li>
+                <li><a href="#contact" data-text="Contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">arnesh@portfolio:~</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line"><span class="prompt">$</span> <span class="command">whoami</span></p>
+                    <h1 class="hero-name glitch" data-text="Arnesh Dorsatwar">Arnesh Dorsatwar</h1>
+                    <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat role.txt</span></p>
+                    <p class="hero-subtitle" id="typing-text"></p>
+                    <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat location.txt</span></p>
+                    <p class="hero-location">Georgia Tech | Phoenix, AZ</p>
+                    <p class="terminal-line cursor-line"><span class="prompt">$</span> <span class="cursor">_</span></p>
+                </div>
+            </div>
+            <div class="hero-links">
+                <a href="https://github.com/ArneshDorsatwar" target="_blank" class="hero-btn" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/arneshdorsatwar" target="_blank" class="hero-btn" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:adorsatwar3@gatech.edu" class="hero-btn" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="keyboard-3d">
+                <div class="kb-row">
+                    <div class="key" data-key="E">E</div>
+                    <div class="key" data-key="S">S</div>
+                    <div class="key" data-key="C">C</div>
+                </div>
+                <div class="kb-row">
+                    <div class="key wide" data-key="CTRL">CTRL</div>
+                    <div class="key" data-key="A">A</div>
+                    <div class="key" data-key="D">D</div>
+                </div>
+                <div class="kb-row">
+                    <div class="key wider" data-key="SHIFT">SHIFT</div>
+                    <div class="key wider" data-key="ENTER">ENTER</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                About Me
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="server-rack-card">
+                        <div class="rack-header">
+                            <div class="rack-leds">
+                                <span class="led active"></span>
+                                <span class="led active"></span>
+                                <span class="led"></span>
+                            </div>
+                            <span class="rack-label">SYSTEM.INFO</span>
+                        </div>
+                        <div class="rack-body">
+                            <p>I'm a <span class="highlight">Computer Engineering</span> student at Georgia Tech with a passion for building systems that sit at the intersection of hardware and software.</p>
+                            <p>From fine-tuning LLMs for network security to designing custom PCBs for mechanical keyboards, I thrive on projects that push boundaries. I believe the best engineering happens when you understand the full stack &mdash; from silicon to software.</p>
+                            <p>When I'm not coding or soldering, you'll find me building custom keyboards for clients worldwide through <span class="highlight">ArneshKeys</span>, my international custom keyboard business.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card" data-aos="fade-up">
+                        <div class="stat-number" data-count="40">0</div>
+                        <div class="stat-label">Keyboards Built</div>
+                        <div class="stat-bar"></div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up">
+                        <div class="stat-number" data-count="20">0</div>
+                        <div class="stat-label">PCBs Designed</div>
+                        <div class="stat-bar"></div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up">
+                        <div class="stat-number" data-count="300">0</div>
+                        <div class="stat-label">Test Cases Written</div>
+                        <div class="stat-bar"></div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Students Taught</div>
+                        <div class="stat-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Experience
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-header">
+                            <div class="card-status">
+                                <span class="status-dot online"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                            <span class="card-date">Oct 2025 &ndash; Present</span>
+                        </div>
+                        <h3 class="card-title">Software Engineering Intern</h3>
+                        <h4 class="card-company">FigTree IT (Fireweave) <span class="card-location">Remote</span></h4>
+                        <ul class="card-details">
+                            <li>Developed features for Fireweave, a network security policy management platform for automating firewall policy analysis and traffic flow optimization.</li>
+                            <li>Built <span class="highlight">Ember</span>, a distributed LLM-based interface to manage FireWeave tools, supporting chat persistence, multi-step workflows, and context-aware reasoning.</li>
+                            <li>Fine-tuned Ollama 3.1:8b using <span class="highlight">Unsloth + QLoRA</span>, implementing knowledge distillation and dataset normalization pipelines, achieving <span class="highlight">53% faster inference</span>.</li>
+                            <li>Implemented <span class="highlight">Adaptive RAG pipelines with LangGraph</span> for Ember to query live firewall configs, policy changes, and enterprise rules in real time, increasing speed by 22%.</li>
+                            <li>Migrated backend storage from a document database to <span class="highlight">PostgreSQL</span>, introducing Redis caching to reduce query latency.</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">LangChain</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">QLoRA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-header">
+                            <div class="card-status">
+                                <span class="status-dot online"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                            <span class="card-date">Sept 2025 &ndash; Present</span>
+                        </div>
+                        <h3 class="card-title">Electrical & Software Designer</h3>
+                        <h4 class="card-company">IEEE Robotics <span class="card-location">Atlanta, GA</span></h4>
+                        <ul class="card-details">
+                            <li>Developed embedded systems and integrated photovoltaic sensors for competition robotics.</li>
+                            <li>Modeled components with CAD tools to competition specifications.</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">Embedded Systems</span>
+                            <span class="tag">CAD</span>
+                            <span class="tag">Sensors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="card-header">
+                            <div class="card-status">
+                                <span class="status-dot offline"></span>
+                                <span>COMPLETED</span>
+                            </div>
+                            <span class="card-date">Apr 2025 &ndash; Oct 2025</span>
+                        </div>
+                        <h3 class="card-title">Computer Science Teacher</h3>
+                        <h4 class="card-company">BestBrains <span class="card-location">Phoenix, AZ</span></h4>
+                        <ul class="card-details">
+                            <li>Instructed <span class="highlight">50+ students</span> in Scratch, Python, and HTML, focusing on project-based learning.</li>
+                            <li>Designed and launched a summer program that attracted nearly 30 new students.</li>
+                            <li>Developed a new CS curriculum with game design principles for <span class="highlight">100+ students</span>.</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Scratch</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">Curriculum Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-header">
+                            <div class="card-status">
+                                <span class="status-dot online"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                            <span class="card-date">Apr 2022 &ndash; Present</span>
+                        </div>
+                        <h3 class="card-title">Founder & Lead Designer</h3>
+                        <h4 class="card-company">ArneshKeys <span class="card-location">Phoenix, AZ</span></h4>
+                        <ul class="card-details">
+                            <li>Founded and managed a custom mechanical keyboard business serving <span class="highlight">international clients</span>.</li>
+                            <li>Built over <span class="highlight">40 keyboards</span> and designed <span class="highlight">20+ unique PCBs</span> with advanced circuit and CNC integration.</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">PCB Design</span>
+                            <span class="tag">CNC</span>
+                            <span class="tag">AutoCAD</span>
+                            <span class="tag">Business</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="card-header">
+                            <div class="card-status">
+                                <span class="status-dot offline"></span>
+                                <span>COMPLETED</span>
+                            </div>
+                            <span class="card-date">Jul 2024 &ndash; Dec 2024</span>
+                        </div>
+                        <h3 class="card-title">Broadcasting Assistant</h3>
+                        <h4 class="card-company">Willow TV <span class="card-location">Phoenix, AZ</span></h4>
+                        <ul class="card-details">
+                            <li>Edited cricket footage and created broadcast montages under the production director's guidance.</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">Video Editing</span>
+                            <span class="tag">Broadcasting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Projects
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- Ember -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">ember.exe</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span class="code-comment">// Distributed LLM Interface</span>
+                                <span class="code-keyword">import</span> { Ember } <span class="code-keyword">from</span> <span class="code-string">'fireweave'</span>;
+                                <span class="code-keyword">const</span> agent = <span class="code-keyword">new</span> Ember({</span>
+                                <span>&nbsp;&nbsp;model: <span class="code-string">'ollama-3.1:8b'</span>,</span>
+                                <span>&nbsp;&nbsp;rag: <span class="code-keyword">true</span>,</span>
+                                <span>});</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Ember - LLM Interface</h3>
+                        <p class="project-desc">Distributed LLM-based interface for managing FireWeave network security tools. Features chat persistence, multi-step workflows, and context-aware reasoning with Adaptive RAG pipelines.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">LangGraph</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">LLM</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">53%</span>
+                                <span class="metric-label">Faster Inference</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">22%</span>
+                                <span class="metric-label">Speed Increase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learn Python TDD -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">tdd_runner.py</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span class="code-comment"># Test Driven Development</span>
+                                <span class="code-keyword">def</span> <span class="code-func">generate_tests</span>(prompt):</span>
+                                <span>&nbsp;&nbsp;cases = ai.create(prompt)</span>
+                                <span>&nbsp;&nbsp;<span class="code-keyword">for</span> case <span class="code-keyword">in</span> cases:</span>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;assert case.run()</span>
+                                <span>&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">"All passed"</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Learn Python TDD</h3>
+                        <p class="project-desc">Autonomous test generation system that creates and executes test cases from prompts and runtime errors. Full TDD workflow ensuring reliability and stable model behavior across revisions.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">TDD</span>
+                            <span class="tag">Cursor</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">300+</span>
+                                <span class="metric-label">Test Cases</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutoring Center Scheduler -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">scheduler.js</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span class="code-comment">// Tutoring Center Platform</span>
+                                <span class="code-keyword">const</span> app = express();</span>
+                                <span>app.use(auth.middleware);</span>
+                                <span>app.use(<span class="code-string">'/bookings'</span>,</span>
+                                <span>&nbsp;&nbsp;bookingRouter);</span>
+                                <span>app.listen(<span class="code-number">3000</span>);</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Tutoring Center Scheduler</h3>
+                        <p class="project-desc">Full-stack web application for tutoring center management with custom Active Directory system for role-based access control. Deployed in Dockerized containers.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">100+</span>
+                                <span class="metric-label">Active Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ArneshKeys -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">keeb_config.json</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span>{</span>
+                                <span>&nbsp;&nbsp;<span class="code-string">"switches"</span>: <span class="code-string">"custom"</span>,</span>
+                                <span>&nbsp;&nbsp;<span class="code-string">"pcb"</span>: <span class="code-string">"arnesh-v4.2"</span>,</span>
+                                <span>&nbsp;&nbsp;<span class="code-string">"layout"</span>: <span class="code-string">"65%"</span>,</span>
+                                <span>&nbsp;&nbsp;<span class="code-string">"builds"</span>: <span class="code-number">40</span></span>
+                                <span>}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">ArneshKeys</h3>
+                        <p class="project-desc">Custom mechanical keyboard business serving international clients. Over 40 handcrafted builds with 20+ unique PCB designs featuring advanced circuit design and CNC integration.</p>
+                        <div class="project-tags">
+                            <span class="tag">PCB Design</span>
+                            <span class="tag">AutoCAD</span>
+                            <span class="tag">CNC</span>
+                            <span class="tag">Hardware</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">40+</span>
+                                <span class="metric-label">Builds</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">20+</span>
+                                <span class="metric-label">PCB Designs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LLM Fine-Tuning -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">finetune.py</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span class="code-comment"># Network Security LLM</span>
+                                <span class="code-keyword">from</span> unsloth <span class="code-keyword">import</span> FastModel</span>
+                                <span>model = FastModel.from_pretrained(</span>
+                                <span>&nbsp;&nbsp;<span class="code-string">"ollama-3.1:8b"</span>,</span>
+                                <span>&nbsp;&nbsp;quantization=<span class="code-string">"qlora"</span></span>
+                                <span>)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">LLM Fine-Tuning Pipeline</h3>
+                        <p class="project-desc">Fine-tuned Ollama 3.1:8b using Unsloth + QLoRA for network security domain. Implemented knowledge distillation and dataset normalization pipelines for optimized inference.</p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Unsloth</span>
+                            <span class="tag">QLoRA</span>
+                            <span class="tag">SFT</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">53%</span>
+                                <span class="metric-label">Faster Inference</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IEEE Robotics -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">robot_ctrl.c</span>
+                        </div>
+                        <div class="screen-content">
+                            <div class="code-lines">
+                                <span class="code-comment">// Competition Robotics</span>
+                                <span class="code-keyword">#include</span> <span class="code-string">&lt;sensor.h&gt;</span></span>
+                                <span class="code-keyword">void</span> <span class="code-func">init_pv</span>() {</span>
+                                <span>&nbsp;&nbsp;adc_read(PV_SENSOR);</span>
+                                <span>&nbsp;&nbsp;calibrate();</span>
+                                <span>}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">IEEE Competition Robot</h3>
+                        <p class="project-desc">Embedded systems development for competition robotics at Georgia Tech IEEE. Integrated photovoltaic sensors and modeled components with CAD tools to spec.</p>
+                        <div class="project-tags">
+                            <span class="tag">Embedded C</span>
+                            <span class="tag">CAD</span>
+                            <span class="tag">Sensors</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Tech Stack
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="server-indicator">
+                            <span class="led active"></span>
+                        </div>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Java</span><div class="skill-bar"><div class="skill-fill" data-level="75"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">C#</span><div class="skill-bar"><div class="skill-fill" data-level="70"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">C / Embedded C</span><div class="skill-bar"><div class="skill-fill" data-level="65"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="server-indicator">
+                            <span class="led active"></span>
+                        </div>
+                        <h3>Frameworks & Tools</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">Node.js</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">LangChain / RAG</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">PyTorch / Unsloth</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">PostgreSQL / MongoDB</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Redis</span><div class="skill-bar"><div class="skill-fill" data-level="75"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-level="70"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="server-indicator">
+                            <span class="led active"></span>
+                        </div>
+                        <h3>Hardware & Design</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">PCB Design</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">AutoCAD</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">CNC Machining</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Embedded Systems</span><div class="skill-bar"><div class="skill-fill" data-level="70"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up">
+                    <div class="category-header">
+                        <div class="server-indicator">
+                            <span class="led active"></span>
+                        </div>
+                        <h3>Developer Tools</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Linux</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">REST APIs</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                        <div class="skill-item"><span class="skill-name">Palo Alto</span><div class="skill-bar"><div class="skill-fill" data-level="70"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Connect
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">connection.sh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">echo "Let's build something together"</span></p>
+                        <p class="terminal-output">I'm always open to collaborating on interesting projects, especially anything involving AI, hardware, or security.</p>
+                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat contact_info.json</span></p>
+                        <div class="contact-json">
+                            <span>{</span>
+                            <span>&nbsp;&nbsp;<span class="code-string">"email"</span>: <span class="code-string">"adorsatwar3@gatech.edu"</span>,</span>
+                            <span>&nbsp;&nbsp;<span class="code-string">"phone"</span>: <span class="code-string">"602-807-2509"</span>,</span>
+                            <span>&nbsp;&nbsp;<span class="code-string">"linkedin"</span>: <span class="code-string">"arneshdorsatwar"</span>,</span>
+                            <span>&nbsp;&nbsp;<span class="code-string">"github"</span>: <span class="code-string">"ArneshDorsatwar"</span>,</span>
+                            <span>&nbsp;&nbsp;<span class="code-string">"keyboards"</span>: <span class="code-string">"@arnesh_keys"</span></span>
+                            <span>}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:adorsatwar3@gatech.edu" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <span>adorsatwar3@gatech.edu</span>
+                    </a>
+                    <a href="https://linkedin.com/in/arneshdorsatwar" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/ArneshDorsatwar" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </div>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="tel:602-807-2509" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <span>602-807-2509</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="prompt">$</span> Designed & built by Arnesh Dorsatwar
+                </p>
+                <p class="footer-copy">&copy; 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
