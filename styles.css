@@ -942,6 +942,110 @@ body {
     letter-spacing: 1px;
 }
 
+/* Project Links */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--turquoise);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 229, 199, 0.2);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.project-link:hover {
+    background: rgba(0, 229, 199, 0.1);
+    border-color: var(--turquoise);
+    box-shadow: 0 0 12px rgba(0, 229, 199, 0.15);
+}
+
+.project-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* Image Carousel (Homelab Project) */
+.project-carousel {
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.project-carousel .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.project-carousel .carousel-slide {
+    min-width: 100%;
+    height: 220px;
+}
+
+.project-carousel .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-carousel .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 229, 199, 0.3);
+    color: var(--turquoise);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.project-carousel .carousel-btn:hover {
+    background: rgba(0, 229, 199, 0.15);
+    border-color: var(--turquoise);
+}
+
+.project-carousel .carousel-btn.prev { left: 8px; }
+.project-carousel .carousel-btn.next { right: 8px; }
+
+.project-carousel .carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.project-carousel .carousel-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-carousel .carousel-dots span.active {
+    background: var(--turquoise);
+    box-shadow: 0 0 6px var(--turquoise-glow);
+}
+
 /* ============================================
    SKILLS SECTION
    ============================================ */
