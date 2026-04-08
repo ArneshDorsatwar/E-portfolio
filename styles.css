@@ -1144,19 +1144,29 @@ body {
     background: var(--black-card);
 }
 
-.resume-embed-container {
-    width: 100%;
-    aspect-ratio: 8.5 / 11;
+.resume-preview-link {
+    display: block;
     border-radius: 4px;
     overflow: hidden;
     border: 1px solid rgba(0, 229, 199, 0.08);
+    transition: all 0.3s ease;
 }
 
-.resume-embed {
+.resume-preview-link:hover {
+    border-color: rgba(0, 229, 199, 0.3);
+    box-shadow: 0 0 20px var(--turquoise-glow);
+}
+
+.resume-preview-img {
     width: 100%;
-    height: 100%;
-    border: none;
-    background: #1a1a2e;
+    display: block;
+    border-radius: 4px;
+    filter: brightness(0.95);
+    transition: filter 0.3s ease;
+}
+
+.resume-preview-link:hover .resume-preview-img {
+    filter: brightness(1);
 }
 
 .resume-actions {
