@@ -1162,6 +1162,161 @@ body.modal-open {
     }
 }
 
+/* Project Writeup (full case study, shown only when expanded) */
+.project-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--turquoise);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.expand-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--white-muted);
+    margin-top: 14px;
+    opacity: 0.8;
+}
+
+.expand-hint .hint-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.project-card.expanded .expand-hint {
+    display: none;
+}
+
+.project-writeup {
+    display: none;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 229, 199, 0.15);
+    color: var(--white-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.project-card.expanded .project-writeup {
+    display: block;
+}
+
+.writeup-heading {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--turquoise);
+    margin: 28px 0 12px;
+    letter-spacing: 0.5px;
+    border-left: 3px solid var(--turquoise);
+    padding-left: 12px;
+}
+
+.writeup-heading:first-child {
+    margin-top: 0;
+}
+
+.project-writeup p {
+    margin-bottom: 14px;
+}
+
+.project-writeup strong {
+    color: var(--white);
+}
+
+.project-writeup em {
+    color: var(--white-muted);
+}
+
+.project-writeup code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(0, 229, 199, 0.08);
+    color: var(--turquoise);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.writeup-list {
+    margin: 8px 0 16px 20px;
+    padding: 0;
+}
+
+.writeup-list li {
+    margin-bottom: 10px;
+}
+
+.writeup-diagram {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(0, 229, 199, 0.15);
+    border-radius: 8px;
+    padding: 16px;
+    color: var(--white);
+    overflow-x: auto;
+    line-height: 1.5;
+    margin: 12px 0 20px;
+}
+
+.writeup-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 0.92rem;
+}
+
+.writeup-table th,
+.writeup-table td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(0, 229, 199, 0.1);
+}
+
+.writeup-table th {
+    color: var(--turquoise);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 229, 199, 0.04);
+}
+
+.writeup-table td:first-child {
+    color: var(--white);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.writeup-repo {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: rgba(0, 229, 199, 0.05);
+    border-left: 3px solid var(--turquoise);
+    border-radius: 4px;
+}
+
+.writeup-repo a {
+    color: var(--turquoise);
+    text-decoration: none;
+}
+
+.writeup-repo a:hover {
+    text-decoration: underline;
+}
+
 /* ============================================
    SKILLS SECTION
    ============================================ */

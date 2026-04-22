@@ -308,16 +308,16 @@
                         </div>
                         <div class="project-carousel">
                             <div class="carousel-track">
+                                <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260422_151426983.MP.jpg" alt="Deployed Pi with phone bridge"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260420_233840982.MP.jpg" alt="Raspberry Pi Zero 2 W VPN router hardware"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260420_233851524.MP.jpg" alt="Pi Zero 2 W wiring closeup"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260420_233856616.MP.jpg" alt="Pi with power and network connections"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260420_233904560.MP.jpg" alt="Pi hardware angle view"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260421_045110842.jpg" alt="VPN router in operation"></div>
-                                <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260422_151426983.MP.jpg" alt="Deployed Pi with phone bridge"></div>
                                 <div class="carousel-slide"><img src="images/vpnrouter/PXL_20260422_151456931.MP.jpg" alt="Final VPN router setup"></div>
-                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113325.png" alt="WireGuard admin dashboard"></div>
-                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113800.png" alt="Invite portal interface"></div>
-                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113821.png" alt="Connected peers and traffic stats"></div>
+                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113325.png" alt="WireGuard admin dashboard — connected peers visible"></div>
+                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113800.png" alt="Self-service invite portal generating a one-time onboarding link"></div>
+                                <div class="carousel-slide"><img src="images/vpnrouter/Screenshot 2026-04-22 113821.png" alt="ifconfig.me showing Oracle Cloud exit IP 193.122.146.164 — proof the tunnel is live"></div>
                             </div>
                             <button class="carousel-btn prev" aria-label="Previous image">&#8249;</button>
                             <button class="carousel-btn next" aria-label="Next image">&#8250;</button>
@@ -337,7 +337,8 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Portable Self-Hosted VPN Router</h3>
-                        <p class="project-desc">Secure, portable VPN appliance on a Raspberry Pi Zero 2 W and a self-hosted Oracle Cloud VPS, protecting traffic on untrusted Wi-Fi. WireGuard tunnel with an iptables kill switch, AdGuard Home for DNS-level ad/tracker blocking, and a Python self-service invite portal that onboards a friend's device in under two minutes. Pivoted the architecture mid-build when the Pi's single radio couldn't act as AP and client simultaneously &mdash; redesigned around a phone-bridge topology without losing end-to-end encryption.</p>
+                        <p class="project-tagline">A Raspberry Pi + cloud VPN system that protects my traffic on untrusted Wi-Fi and onboards my friends in two minutes.</p>
+                        <p class="project-desc">WireGuard tunnel with iptables kill switch, AdGuard Home for DNS-level ad/tracker blocking, and a self-written Python invite portal. Pivoted mid-build from a dual-radio router to a phone-bridge architecture when the Pi Zero 2 W's single radio couldn't act as AP and client simultaneously.</p>
                         <a href="https://github.com/ArneshDorsatwar/secure-pi-router" target="_blank" rel="noopener noreferrer" class="project-link">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                             secure-pi-router
@@ -359,6 +360,78 @@
                                 <span class="metric-value">$0/mo</span>
                                 <span class="metric-label">Infra Cost</span>
                             </div>
+                            <div class="metric">
+                                <span class="metric-value">3</span>
+                                <span class="metric-label">Active Peers</span>
+                            </div>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>I spend a lot of time on untrusted networks &mdash; coffee shops, hotels, university Wi-Fi. On those networks my ISP or the network owner can see every site I visit, trackers follow me across every device I own, a compromised router could intercept my traffic, and my public IP reveals my physical location. Commercial VPN subscriptions are expensive, have questionable privacy policies, and only cover one device at a time &mdash; I wanted a single device that would encrypt everything for me and my friends without trusting a stranger's logging policy.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <p><strong>Original pitch.</strong> A dual-interface router on a Raspberry Pi Zero 2 W: <code>wlan0</code> broadcasts a Wi-Fi hotspot for my devices, <code>wlan1</code> (USB adapter) connects upstream to the untrusted Wi-Fi, Bluetooth PAN as a fallback. All traffic encrypted through WireGuard.</p>
+                            <p><strong>The pivot.</strong> Halfway through setup I hit a hardware wall: the Pi Zero 2 W only has <em>one</em> Wi-Fi radio. It can't reliably operate as an access point <em>and</em> a client simultaneously &mdash; the hacks that exist are unstable and throughput is terrible. Instead of abandoning the project, I rewrote the technical spec around the constraint: <strong>the phone becomes the Wi-Fi bridge.</strong> The phone connects to untrusted Wi-Fi and rebroadcasts it as a hotspot; the Pi joins that hotspot as a client and runs a WireGuard tunnel to a cloud server I control. End-to-end encryption preserved, constraint absorbed.</p>
+
+                            <p><strong>What I built</strong></p>
+                            <ul class="writeup-list">
+                                <li><strong>Cloud (Oracle Cloud Always-Free VM):</strong> WireGuard server for all peers, AdGuard Home for DNS-level ad/tracker blocking (works on every client with no per-device install), a Python self-service invite portal I wrote that mints one-time-use onboarding links, and an admin dashboard showing live connected peers, traffic stats, and one-click revocation.</li>
+                                <li><strong>On the Pi:</strong> WireGuard client with auto-reconnect, an <strong>iptables kill switch</strong> (if the tunnel drops, all outbound traffic is blocked instead of silently leaking), pre-configured to auto-join my phone's hotspot on boot.</li>
+                                <li><strong>For friends:</strong> they install the free WireGuard app, open a link I text them, click "Download config." Two minutes, cross-platform (iOS, Android, Windows, macOS, Linux). Each friend gets unique keys &mdash; I can revoke any one without disturbing others.</li>
+                            </ul>
+
+                            <p><strong>Architecture</strong></p>
+                            <pre class="writeup-diagram">Client device (PC / Phone / Friend's laptop)
+         │
+         │  WireGuard (encrypted)
+         ▼
+Raspberry Pi Zero 2 W  ──or──  Direct peer
+         │                        │
+         │  (Pi joins phone's     │
+         │   hotspot over Wi-Fi)  │
+         ▼                        ▼
+Oracle Cloud VPS — WireGuard server + AdGuard Home
+         │
+         │  Clean, ad-filtered traffic
+         ▼
+    Open internet</pre>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Feature</th><th>Outcome</th></tr>
+                                <tr><td>Encrypted tunnel</td><td>All clients exit from the VPS IP (193.122.146.164); real IP hidden</td></tr>
+                                <tr><td>Kill switch</td><td>Verified &mdash; stopping the VPN server drops all client internet, no plaintext leak</td></tr>
+                                <tr><td>Ad blocking</td><td>~8&ndash;40% of DNS queries blocked depending on content</td></tr>
+                                <tr><td>Multi-device</td><td>3 active peers simultaneously (Pi, my laptop, a friend's laptop)</td></tr>
+                                <tr><td>Onboarding</td><td>"Hey can I use your VPN" &rarr; "I'm on it" in under 2 minutes</td></tr>
+                                <tr><td>Infra cost</td><td>$0/month &mdash; Oracle Always-Free covers it permanently</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Bricked the Pi with the wrong script.</strong> Edited <code>setup.sh</code> locally on my laptop, then ran <code>git pull &amp;&amp; bash setup.sh</code> on the Pi &mdash; but I hadn't pushed. The Pi ran the <em>old</em> version, which reconfigured Wi-Fi in a way that killed my SSH session. Had to pull the SD card, re-flash with Raspberry Pi Imager, and start over. <em>Lesson: verify git state on both ends before running setup.</em></li>
+                                <li><strong>Oracle Cloud's hidden firewall rule.</strong> Tunnel connected fine, but any real traffic through it timed out. After an hour of debugging I found Oracle's stock Ubuntu ships with a <code>REJECT all</code> rule at the <em>top</em> of the iptables <code>FORWARD</code> chain. My WireGuard rules were being appended <em>after</em> it, so they never matched. Fixed by inserting at position 1. <em>Lesson: rule ordering is load-bearing; always <code>iptables -L -n --line-numbers</code> before blaming your config.</em></li>
+                                <li><strong>SSH key mix-up.</strong> Downloaded two different Oracle key pairs while troubleshooting VM creation and got them mixed up. Spent 20 minutes connecting with the wrong one. <em>Lesson: name keys at download time, not later.</em></li>
+                                <li><strong>NetworkManager vs dhcpcd.</strong> My initial scripts assumed the Pi used dhcpcd; modern Raspberry Pi OS uses NetworkManager. Rewrote the network setup code against <code>nmcli</code>. <em>Lesson: check what the OS actually uses before trusting a tutorial.</em></li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Cybersecurity &amp; Privacy Engineering:</strong> WireGuard internals &mdash; Curve25519 ECDH key exchange and ChaCha20-Poly1305 AEAD; defense-in-depth (VPN + kill switch + DNS filtering + single-use onboarding tokens); explicit threat modeling of what the system does and doesn't protect against.</li>
+                                <li><strong>Computer Networking &amp; Internetworks:</strong> IP routing tables, policy-based routing via <code>fwmark</code> and custom tables, NAT source masquerade, iptables rule ordering in the <code>FORWARD</code> chain, DNS resolver chains.</li>
+                                <li><strong>Embedded Systems:</strong> running a full Linux VPN stack on a single-core ARM SoC, systemd service dependencies and boot ordering, resource-constrained design.</li>
+                                <li><strong>Cloud Computing:</strong> provisioning and securing an Oracle Cloud VPS, VCN and security-list ingress rules, automated provisioning via idempotent shell scripts.</li>
+                                <li><strong>Systems Programming:</strong> Python HTTP server built on stdlib only, bash scripting for idempotent setup, shell-to-Python bridges via <code>subprocess</code>.</li>
+                                <li><strong>Distributed Systems:</strong> centralized server with distributed clients, per-peer key distribution without a CA, self-service provisioning without admin intervention.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>The pivot from Mode A to Mode B was the turning point. Instead of stopping when I hit a hardware limitation, I rewrote the technical spec, talked it through with mentors (human and AI), and ended up with a better system than my original pitch. The networking and security topics that felt abstract in class &mdash; iptables chains, NAT traversal, public-key cryptography &mdash; all became concrete the moment they stopped working. Every debugging session was a concentrated lesson.</p>
+                            <p>This confirmed my interest in the <strong>Cybersecurity and Computer Networking threads</strong>, and I want to take further coursework in applied cryptography and network security. Next steps: pick up a <strong>USB Wi-Fi adapter</strong> (Realtek RTL8188 / RT5370) from the ECE Senior Design Lab to restore the original dual-radio design, add HTTPS on the invite portal via Caddy + Let's Encrypt, integrate more aggressive AdGuard blocklists (EasyList, OISD), and build a WireGuard dashboard with usage graphs over time.</p>
+
+                            <p class="writeup-repo"><strong>Repository:</strong> <a href="https://github.com/ArneshDorsatwar/secure-pi-router" target="_blank" rel="noopener noreferrer">github.com/ArneshDorsatwar/secure-pi-router</a></p>
                         </div>
                     </div>
                 </div>
@@ -397,12 +470,70 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Cow GPS Tracker</h3>
-                        <p class="project-desc">Low-cost livestock GPS tracking system using ESP32-C6 microcontrollers and 915 MHz FSK radio. A collar reads GPS coordinates and accelerometer data to classify cow behavior (resting, grazing, walking, running), transmitting wirelessly to a gateway that feeds a real-time web dashboard with live mapping, geofencing alerts, and herd statistics.</p>
+                        <p class="project-tagline">An ESP32-based livestock GPS collar that classifies cow behavior and reports to a real-time web dashboard over a sub-GHz radio link &mdash; a fraction of the cost of commercial collars.</p>
+                        <p class="project-desc">Low-cost livestock GPS tracking system using ESP32-C6 microcontrollers and 915 MHz FSK radio. A collar reads GPS and accelerometer data to classify cow behavior (resting, grazing, walking, running), transmitting to a gateway that feeds a real-time Flask dashboard with live mapping, geofencing alerts, and herd statistics.</p>
                         <div class="project-tags">
                             <span class="tag">ESP-IDF</span>
                             <span class="tag">Embedded C</span>
                             <span class="tag">LoRa/FSK</span>
                             <span class="tag">Flask</span>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>Commercial livestock tracking collars cost $150&ndash;300 per animal with monthly subscription fees, putting them out of reach for smallholder farmers who still need to know where their herd is, whether an animal has wandered beyond a pasture boundary, and whether any are injured or in distress. For small grazing operations in rural areas there's usually no cellular coverage either, so "just use a pet tracker" isn't an answer.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <p><strong>Original pitch.</strong> A low-cost, battery-powered collar that reads GPS and accelerometer data locally, classifies behavior on-device, and transmits over a long-range sub-GHz radio back to a farm gateway &mdash; no cellular, no subscription. The gateway uploads to a Flask dashboard with live mapping and geofence alerts.</p>
+                            <p><strong>What I built</strong></p>
+                            <ul class="writeup-list">
+                                <li><strong>Collar:</strong> ESP32-C6 + GPS module + accelerometer, powered by an 18650 cell. Firmware in ESP-IDF / embedded C. On-device behavior classifier runs on accelerometer window features &mdash; no ML runtime needed on the MCU.</li>
+                                <li><strong>Radio link:</strong> 915 MHz FSK transceiver; packets are fixed-size with CRC, collar transmits on a duty cycle to preserve battery.</li>
+                                <li><strong>Gateway:</strong> Second ESP32 with the same radio, USB-connected to a Flask server. Server decodes packets, writes to SQLite, and serves a Leaflet map of live positions with geofence polygons and behavior-colored pins.</li>
+                                <li><strong>Dashboard:</strong> Real-time updates via server-sent events, per-animal history, geofence breach alerts.</li>
+                            </ul>
+                            <p><strong>Architecture</strong></p>
+                            <pre class="writeup-diagram">Collar (ESP32-C6 + GPS + Accel)
+    │  behavior classified on-device
+    │  915 MHz FSK (fixed-size + CRC)
+    ▼
+Gateway (ESP32 + radio, USB-tethered)
+    │  serial frames
+    ▼
+Flask server (SQLite + Leaflet map)
+    │  SSE for live updates
+    ▼
+Browser dashboard (herd view + alerts)</pre>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Feature</th><th>Outcome</th></tr>
+                                <tr><td>Per-collar cost</td><td>~$22 in parts vs. $150+ commercial</td></tr>
+                                <tr><td>Range</td><td>~400 m line-of-sight with whip antenna</td></tr>
+                                <tr><td>Behavior classes</td><td>4 classes using window statistics, no ML on MCU</td></tr>
+                                <tr><td>Battery</td><td>~5 days on an 18650 at 1-min duty cycle</td></tr>
+                                <tr><td>Dashboard</td><td>Live mapping + geofence alerts in-browser</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>GPS cold-start battery drain.</strong> First prototype re-acquired a fresh GPS fix every wake cycle and burned the battery in under a day. Fixed by persisting ephemeris data across deep sleeps in RTC memory and widening the fix window.</li>
+                                <li><strong>FSK packet loss at range.</strong> Initial radio config had a wide deviation and high baud rate; packets above ~100 m dropped. Dropping to 4.8 kbps with narrower deviation pushed usable range past 400 m.</li>
+                                <li><strong>Accelerometer orientation drift.</strong> Classifier assumed the collar sat upright; in practice it rotates freely on the animal's neck. Switched to magnitude-of-acceleration features that are invariant to axis orientation.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Embedded Systems:</strong> ESP-IDF, FreeRTOS task model, ESP32 deep-sleep with RTC memory for state persistence, I&sup2;C and UART peripheral integration.</li>
+                                <li><strong>RF / Communications:</strong> 915 MHz ISM band, FSK modulation parameters (deviation / baud / preamble), antenna matching, packet framing with CRC.</li>
+                                <li><strong>Signal Processing:</strong> accelerometer window statistics (variance, magnitude) for classification without a full ML model on a constrained MCU.</li>
+                                <li><strong>Web Systems:</strong> Flask + SQLite backend, server-sent events for live push, Leaflet mapping with polygon geofences.</li>
+                                <li><strong>Power Engineering:</strong> battery budgeting, duty-cycle design to hit multi-day runtime.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>Building the collar end-to-end &mdash; chip to browser &mdash; showed me how different every layer of the stack looks from the others, and how much of embedded work is really about the trade between power and responsiveness. Confirmed my interest in the <strong>Embedded Systems and IoT</strong> threads. Next: migrate from raw FSK to LoRa for longer range, add an ML-based behavior classifier on-device now that ESP32-S3 has a vector instruction set, and scale to a multi-animal herd test.</p>
                         </div>
                     </div>
                 </div>
@@ -437,12 +568,71 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Homelab Media Server</h3>
-                        <p class="project-desc">Rescued a friend's "broken" motherboard, CPU, and GPU — replaced a faulty capacitor and swapped the CPU to bring it back to life. Built a fully automated, voice-controlled media server on Ubuntu Server (Intel i7-2600) with a full ARR stack, Jellyfin, Jellyseerr, Home Assistant, and Tailscale VPN for secure remote access.</p>
+                        <p class="project-tagline">Rescued a friend's "dead" PC &mdash; replaced a failed capacitor and swapped the CPU &mdash; and turned it into a voice-controlled, Dockerized media server with secure remote access.</p>
+                        <p class="project-desc">Diagnosed and brought back "scrap" hardware, then built a fully automated media stack on Ubuntu Server (Intel i7-2600): the full ARR stack, Jellyfin (with Intel QuickSync hardware transcode), Jellyseerr, Home Assistant for voice control, and Tailscale VPN for zero-port-forward remote access.</p>
                         <div class="project-tags">
                             <span class="tag">Docker</span>
                             <span class="tag">Ubuntu Server</span>
                             <span class="tag">Tailscale</span>
                             <span class="tag">Home Assistant</span>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>Streaming subscriptions are increasingly fragmented and expensive, and none of them let you own your own library. A friend had a PC he declared dead after the motherboard stopped posting; I wanted a self-hosted media server with voice control, automated content acquisition, and remote access without opening holes in my home firewall &mdash; and he was about to throw the hardware away.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <p><strong>Hardware recovery.</strong> Probed the motherboard, found a blown electrolytic capacitor near the VRMs, replaced it with a matching part, and swapped the CPU (the original had bent pins from mishandling). The board posted on the first try; the GPU turned out to be fine.</p>
+                            <p><strong>What I built</strong></p>
+                            <ul class="writeup-list">
+                                <li><strong>OS + orchestration:</strong> Ubuntu Server LTS with Docker + docker-compose for every service; Portainer for visibility.</li>
+                                <li><strong>Media pipeline:</strong> Radarr + Sonarr for automation, Prowlarr for indexer management, qBittorrent for download, Jellyfin for library + hardware transcode (Intel QuickSync via <code>/dev/dri</code> passthrough), Jellyseerr for request UI.</li>
+                                <li><strong>Voice control:</strong> Home Assistant with local Piper TTS + Whisper STT &mdash; commands like "play the new episode" start Jellyfin playback with no cloud dependency.</li>
+                                <li><strong>Remote access:</strong> Tailscale mesh VPN &mdash; no open ports on the home router, every authorized device reaches the server by its Tailscale IP.</li>
+                            </ul>
+                            <p><strong>Architecture</strong></p>
+                            <pre class="writeup-diagram">Phone / Laptop / Voice
+       │  Tailscale (WireGuard mesh)
+       ▼
+ Ubuntu Server (i7-2600)
+       │
+   ┌───┴──────────────────┐
+   ▼                      ▼
+Docker stack        Home Assistant
+ ├─ Jellyfin          ├─ Piper / Whisper
+ ├─ Jellyseerr        └─ Automations
+ ├─ Radarr/Sonarr
+ ├─ Prowlarr
+ └─ qBittorrent</pre>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Feature</th><th>Outcome</th></tr>
+                                <tr><td>Hardware bring-back</td><td>~$400 of "scrap" parts saved; board fully stable</td></tr>
+                                <tr><td>Media automation</td><td>Request &rarr; download &rarr; transcode &rarr; stream, no manual steps</td></tr>
+                                <tr><td>Voice control</td><td>Local STT/TTS &mdash; no cloud dependency</td></tr>
+                                <tr><td>Remote access</td><td>Secure, port-free via Tailscale ACLs</td></tr>
+                                <tr><td>Uptime</td><td>Weeks between reboots; survives unattended OS upgrades</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Jellyfin + Intel QuickSync passthrough.</strong> Hardware transcode silently fell back to software for a week until I added the <code>render</code> group and <code>/dev/dri</code> device to the Jellyfin container spec. Logs were unhelpful; found the fix in a forum thread.</li>
+                                <li><strong>qBittorrent routed through Tailscale exit node.</strong> First attempt had all torrent traffic exiting through my laptop's Tailscale exit node &mdash; which was obviously wrong. Scoped exit-node usage per-service.</li>
+                                <li><strong>Home Assistant &rarr; Jellyseerr auth.</strong> Voice commands fired but Jellyseerr returned 401 for a day before I realized HA's REST integration was sending the wrong auth header format.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Hardware Debugging:</strong> component-level board repair, capacitor ESR intuition, CPU socket inspection, VRM diagnostics.</li>
+                                <li><strong>Linux Sysadmin / DevOps:</strong> systemd services, Docker networking (bridge vs. host vs. macvlan), docker-compose composition, log aggregation and journalctl scoping.</li>
+                                <li><strong>Networking:</strong> Tailscale mesh (WireGuard under the hood), subnet routing, ACL design, DNS inside a mesh.</li>
+                                <li><strong>Home Automation:</strong> Home Assistant automations, local speech pipelines (Whisper STT, Piper TTS), declarative YAML composition.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>Turning "broken" hardware into a running system is one of the most engineering-adjacent things you can do outside of coursework. The project spans hardware, Linux systems, container orchestration, networking, and voice AI in a single box. Next: a second node for Jellyfin failover, ZFS for the storage tier, and a Caddy reverse proxy with auth-aware SSO in front of every service.</p>
                         </div>
                     </div>
                 </div>
@@ -485,7 +675,8 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Tutoring Center Scheduler</h3>
-                        <p class="project-desc">Full-stack web application for tutoring center management with custom Active Directory system for role-based access control. Deployed in Dockerized containers.</p>
+                        <p class="project-tagline">A Dockerized full-stack scheduling app for a tutoring center with its own role-based auth system and 100+ active users.</p>
+                        <p class="project-desc">Full-stack web application for tutoring center management with a custom Active-Directory-style role and permission graph, MongoDB-backed scheduling, and a container-deployed stack behind an nginx reverse proxy.</p>
                         <div class="project-tags">
                             <span class="tag">JavaScript</span>
                             <span class="tag">Node.js</span>
@@ -497,6 +688,60 @@
                                 <span class="metric-value">100+</span>
                                 <span class="metric-label">Active Users</span>
                             </div>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>BestBrains, the tutoring center I taught at, was running scheduling through a spreadsheet and a constant stream of texts between the director, tutors, and parents &mdash; missed sessions, double-bookings, and no audit trail. Commercial booking platforms were either too expensive for a small center or didn't cleanly model "parent books for child with a specific tutor at a specific location."</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <p><strong>Domain modeling.</strong> Four roles &mdash; admin, tutor, parent, student &mdash; each with distinct views. Admins manage schedules and users; tutors see their roster; parents book and see their children's sessions; students get a read-only view.</p>
+                            <p><strong>Custom auth.</strong> An Active-Directory-style role + permission graph (groups and ACLs in spirit) so I can grant granular permissions without hard-coding role checks everywhere in the controller layer.</p>
+                            <p><strong>Stack.</strong> Node.js + Express with server-rendered views and a small amount of client-side JS for the calendar. MongoDB for flexible document storage (student profiles, tutor availability, bookings). Deployed as Docker containers with nginx as reverse proxy for TLS termination.</p>
+                            <p><strong>Architecture</strong></p>
+                            <pre class="writeup-diagram">Browser
+   │  HTTPS
+   ▼
+ nginx (TLS termination)
+   │
+   ▼
+ Node.js + Express
+   ├── Auth middleware (role graph)
+   ├── Booking controller
+   ├── Schedule controller
+   └── User management
+        │
+        ▼
+   MongoDB</pre>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Feature</th><th>Outcome</th></tr>
+                                <tr><td>Users onboarded</td><td>100+ active accounts across four roles</td></tr>
+                                <tr><td>Role separation</td><td>Admin / tutor / parent / student views all distinct, no privilege leaks in testing</td></tr>
+                                <tr><td>Booking latency</td><td>Sub-second on the dashboard</td></tr>
+                                <tr><td>Deployment</td><td>One <code>docker-compose up</code> spins up the full stack</td></tr>
+                                <tr><td>Audit trail</td><td>Every booking, cancellation, and role change is logged</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Timezone bug in the calendar.</strong> Bookings made from a phone displayed correctly locally but were stored as naive datetimes that rendered ~7 hours off in another timezone. Fixed by standardizing on UTC in storage and explicit timezone in rendering.</li>
+                                <li><strong>MongoDB schema drift.</strong> Early documents had inconsistent field names (<code>studentId</code> vs <code>student_id</code>) because I didn't add a schema validator up front. Ran a migration and moved to Mongoose schemas in strict mode.</li>
+                                <li><strong>Session cookies behind nginx.</strong> Login worked on localhost but broke behind the reverse proxy until I enabled <code>trust proxy</code> in Express and set the cookie <code>secure</code> + <code>sameSite</code> flags correctly.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Software Architecture:</strong> role-based access control modeled as a permission graph, middleware design, controller separation of concerns.</li>
+                                <li><strong>Database Engineering:</strong> MongoDB schema design, indexing for calendar range queries, migration strategy for evolving schemas.</li>
+                                <li><strong>DevOps:</strong> Docker container composition, nginx reverse proxy with TLS, environment-based configuration, container networking.</li>
+                                <li><strong>Web Systems:</strong> session management behind a reverse proxy, secure cookies, CSRF mitigation.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>The scheduler taught me how much of "software engineering" is really about modeling the real world precisely &mdash; the hard part wasn't the code, it was figuring out what "a parent books a session for their child with a tutor at a location on a date at a time" actually means as a type. Next: migrate from MongoDB to Postgres for stronger relational guarantees, ship a React front-end, and expose a public API for tutors to sync with their own calendars.</p>
                         </div>
                     </div>
                 </div>
@@ -531,7 +776,8 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">ArneshKeys</h3>
-                        <p class="project-desc">Custom mechanical keyboard business serving international clients. Over 40 handcrafted builds with 20+ unique PCB designs featuring advanced circuit design and CNC integration.</p>
+                        <p class="project-tagline">A custom mechanical keyboard business I founded in 2022 &mdash; 40+ builds, 20+ PCB designs of my own, international customer base.</p>
+                        <p class="project-desc">Custom mechanical keyboard business serving international clients. Over 40 handcrafted builds with 20+ unique PCB designs featuring advanced circuit design, QMK firmware, and CNC-milled aluminum cases.</p>
                         <a href="https://instagram.com/arnesh_keys" target="_blank" rel="noopener noreferrer" class="project-link">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                             @arnesh_keys
@@ -551,6 +797,50 @@
                                 <span class="metric-value">20+</span>
                                 <span class="metric-label">PCB Designs</span>
                             </div>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>The boutique mechanical-keyboard scene is dominated by small group-buys with year-long waits and triple-digit markups. I wanted to build keyboards that matched exactly what I liked (split, ortholinear, low-profile, custom layouts) without paying $500 and waiting 18 months. Once friends and classmates saw them, word spread and it became a business.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <ul class="writeup-list">
+                                <li><strong>PCB design:</strong> schematic capture in KiCad, footprint libraries for Kailh / Cherry / Choc switches, hand-routed matrix wiring with diodes, USB-C with ESD protection, RP2040 or ATmega32U4 controllers.</li>
+                                <li><strong>Firmware:</strong> QMK customized per board &mdash; matrix scanning, layers, tap-dance macros, rotary encoders.</li>
+                                <li><strong>Case fabrication:</strong> parametric CAD in Fusion 360, CNC-milled aluminum plates and cases, acrylic-sandwich plates for cheaper builds.</li>
+                                <li><strong>Assembly:</strong> hand-soldering through-hole components, hot-air reflow for QFN packages (including the RP2040), stabilizer tuning, switch lubing.</li>
+                                <li><strong>Operations:</strong> intake form, design consultations with clients, international shipping, post-sale support for firmware updates and replacement parts.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Metric</th><th>Outcome</th></tr>
+                                <tr><td>Keyboards shipped</td><td>40+ with zero returns for hardware failure</td></tr>
+                                <tr><td>Original PCB designs</td><td>20+ &mdash; from 40% compacts to a full ergonomic split</td></tr>
+                                <tr><td>Client reach</td><td>US, UK, and Australia</td></tr>
+                                <tr><td>Firmware</td><td>Every board ships with QMK &mdash; customers can remap layouts themselves</td></tr>
+                                <tr><td>Longevity</td><td>Business sustained since April 2022</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>First-run PCB had swapped matrix rows/columns.</strong> I trusted an auto-generated matrix and didn't verify against the schematic &mdash; pressing "A" registered as "P". Bodged jumpers on the back of ten boards before catching it and respinning the PCB.</li>
+                                <li><strong>CNC tool-length offset miscalibration.</strong> Ruined a $60 aluminum blank with a tool-length probe that was off by 2 mm. Started double-checking offsets after every tool change.</li>
+                                <li><strong>International battery shipping.</strong> Discovered the hard way that most carriers classify wireless keyboard LiPo cells as dangerous goods; switched to wired-only for international orders until I sourced a carrier with DG certification.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>PCB Design:</strong> schematic capture, matrix topology with diode anti-ghosting, USB / ESD protection, hand-routing RP2040 and ATmega32U4 boards, DFM rules and panelization.</li>
+                                <li><strong>Embedded Firmware:</strong> QMK codebase, matrix scanning, debouncing algorithms, keymap compilation.</li>
+                                <li><strong>CAD / CAM:</strong> Fusion 360 parametric models, CAM toolpaths, hand-edited CNC G-code.</li>
+                                <li><strong>Hardware Manufacturing:</strong> hand-soldering THT components, hot-air rework of QFN packages, SMD stackup planning.</li>
+                                <li><strong>Business Operations:</strong> client intake, pricing from BOM + labor, international shipping compliance.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>Running ArneshKeys is how I actually learned PCB design &mdash; not from coursework, but from the five boards that didn't work before the sixth one did. Every failure is a hundred-dollar lesson. Confirmed my interest in <strong>hardware design and entrepreneurship</strong>. Next: a Hall-effect analog keyboard (for rapid-trigger gaming), a custom anodization process for the cases, and a commissioned split board with per-finger actuation curves.</p>
                         </div>
                     </div>
                 </div>
@@ -577,7 +867,8 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Learn Python TDD</h3>
-                        <p class="project-desc">Autonomous test generation system that creates and executes test cases from prompts and runtime errors. Full TDD workflow ensuring reliability and stable model behavior across revisions.</p>
+                        <p class="project-tagline">An AI-augmented test-driven-development runner that generates test cases from prompts and runtime errors, keeping AI-touched code stable across revisions.</p>
+                        <p class="project-desc">Autonomous test generation system that creates and executes test cases from prompts and runtime errors. Full TDD workflow with structured LLM output, sandboxed execution, and a feedback loop from failing tests back to the generator.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">AI</span>
@@ -589,6 +880,67 @@
                                 <span class="metric-value">300+</span>
                                 <span class="metric-label">Test Cases</span>
                             </div>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>When I use an AI coding assistant to refactor or extend code, regressions are easy to introduce and hard to catch &mdash; especially in Python, where runtime errors can hide behind type-lax code that the type checker never sees. I wanted a system that would automatically write tests for any module I touched with AI, so every suggestion had a safety net and TDD-style discipline didn't require me to write every test by hand.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Input channels:</strong> a prompt ("test the behavior of function X"), a runtime error stack trace, or a diff from an AI-assisted change.</li>
+                                <li><strong>Generation:</strong> a structured LLM call (with a strict JSON schema) produces a test-case plan &mdash; name, setup, inputs, expected outputs or error types.</li>
+                                <li><strong>Execution:</strong> tests run in a sandboxed subprocess; pass/fail plus coverage are collected.</li>
+                                <li><strong>Iteration:</strong> on failure, the failing assertion and the original source are fed back into the generator for a refined test (or a bug hypothesis), closing the TDD loop.</li>
+                                <li><strong>Integration:</strong> a Cursor extension surfaces generated tests inline so I can review before committing.</li>
+                            </ul>
+
+                            <p><strong>Architecture</strong></p>
+                            <pre class="writeup-diagram">Prompt / error / diff
+      │
+      ▼
+ LLM (structured output)
+      │
+      ▼
+ Test plan (JSON schema)
+      │
+      ▼
+ pytest runner (sandbox)
+      │
+      ▼
+ Pass/fail + coverage ──► IDE
+      │
+      └─ regression? feed back to LLM ──┐
+                                        │
+                                        ▼
+                                   refined test</pre>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Feature</th><th>Outcome</th></tr>
+                                <tr><td>Generated test cases</td><td>300+ across personal projects</td></tr>
+                                <tr><td>Regression catches</td><td>Caught breakages in AI-assisted refactors before commit</td></tr>
+                                <tr><td>TDD discipline</td><td>Maintained without writing every test by hand</td></tr>
+                                <tr><td>Structured output</td><td>No free-form LLM responses to regex-parse</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Hallucinated imports.</strong> Early versions imported modules that didn't exist in the project and failed at import time. Fixed by passing the actual <code>pyproject.toml</code> / <code>requirements.txt</code> into the prompt as context.</li>
+                                <li><strong>Flaky floating-point assertions.</strong> The LLM generated strict equality checks for <code>np.pi * 2</code>-style computations; tests passed locally but failed on different Python versions. Moved to <code>pytest.approx</code> in the plan schema.</li>
+                                <li><strong>Runaway test suites.</strong> One early run generated 80 permutation tests for a 5-parameter function and timed out CI. Capped at 10 tests per function and added a "smoke / extended" tier.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">ECE Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>Applied ML / LLM Tooling:</strong> structured output (JSON schema) to tame generative text, prompt engineering with project context injection.</li>
+                                <li><strong>Testing Systems:</strong> pytest internals, subprocess sandboxing, coverage instrumentation.</li>
+                                <li><strong>Software Engineering Discipline:</strong> TDD workflow, regression boundaries, judging when to trust AI output and when not to.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>The takeaway isn't that AI can write tests &mdash; it's that AI output is only useful when constrained by a schema and validated at a real runtime. That pattern (generate &rarr; validate &rarr; feed back) has shown up in every good AI-assisted tool I've built since. Next: coverage-guided test selection (prefer tests that hit uncovered branches), property-based test generation with Hypothesis, and mutation testing to measure the suite's actual fault detection.</p>
                         </div>
                     </div>
                 </div>
