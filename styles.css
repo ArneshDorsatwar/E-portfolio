@@ -866,6 +866,22 @@ body {
 .screen-dots span:nth-child(2) { background: var(--yellow); }
 .screen-dots span:nth-child(3) { background: var(--green); }
 
+.screen-dots span.expand-dot {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.screen-dots span.expand-dot:hover {
+    transform: scale(1.35);
+    box-shadow: 0 0 10px var(--green);
+}
+
+.screen-dots span.expand-dot:focus-visible {
+    outline: 2px solid var(--turquoise);
+    outline-offset: 2px;
+}
+
 .screen-title {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -1044,6 +1060,106 @@ body {
 .project-carousel .carousel-dots span.active {
     background: var(--turquoise);
     box-shadow: 0 0 6px var(--turquoise-glow);
+}
+
+/* Project Card Expanded Modal */
+.project-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.project-modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.project-card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 75vw;
+    height: 75vh;
+    max-width: 1400px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-color: var(--turquoise);
+    box-shadow: 0 20px 80px rgba(0, 229, 199, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card.expanded:hover {
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 80px rgba(0, 229, 199, 0.25);
+}
+
+.project-card.expanded .screen-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--black-card);
+}
+
+.project-card.expanded .project-screen {
+    flex-shrink: 0;
+}
+
+.project-card.expanded .project-carousel {
+    min-height: 55vh;
+}
+
+.project-card.expanded .project-carousel .carousel-slide {
+    height: 55vh;
+}
+
+.project-card.expanded .project-carousel .carousel-slide img {
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.project-card.expanded .screen-content {
+    min-height: 45vh;
+}
+
+.project-card.expanded .project-info {
+    padding: 32px 40px;
+}
+
+.project-card.expanded .project-title {
+    font-size: 1.6rem;
+}
+
+.project-card.expanded .project-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .project-card.expanded {
+        width: 92vw;
+        height: 88vh;
+    }
+    .project-card.expanded .project-carousel,
+    .project-card.expanded .project-carousel .carousel-slide {
+        min-height: 40vh;
+        height: 40vh;
+    }
+    .project-card.expanded .project-info {
+        padding: 20px;
+    }
 }
 
 /* ============================================

@@ -191,6 +191,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ── Project Card Expand (green dot) ────────
+    const backdrop = document.createElement('div');
+    backdrop.className = 'project-modal-backdrop';
+    document.body.appendChild(backdrop);
+
+    function collapseAll() {
+        document.querySelectorAll('.project-card.expanded').forEach(c => c.classList.remove('expanded'));
+        backdrop.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const dots = card.querySelectorAll('.screen-dots span');
+        const greenDot = dots[2];
+        if (!greenDot) return;
+
+        greenDot.classList.add('expand-dot');
+        greenDot.setAttribute('role', 'button');
+        greenDot.setAttribute('tabindex', '0');
+        greenDot.setAttribute('aria-label', 'Expand project card');
+
+        function toggle(e) {
+            e.stopPropagation();
+            const isExpanded = card.classList.contains('expanded');
+            collapseAll();
+            if (!isExpanded) {
+                card.classList.add('expanded');
+                backdrop.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+        }
+
+        greenDot.addEventListener('click', toggle);
+        greenDot.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle(e);
+            }
+        });
+    });
+
+    backdrop.addEventListener('click', collapseAll);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') collapseAll();
+    });
+
     // ── Smooth scroll for nav links ────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
