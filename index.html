@@ -845,6 +845,117 @@ Docker stack        Home Assistant
                     </div>
                 </div>
 
+                <!-- arnesh_keys Software Platform -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-screen" style="border-bottom: none;">
+                        <div class="screen-header">
+                            <div class="screen-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="screen-title">configurator.tsx</span>
+                        </div>
+                        <div class="project-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide"><img src="images/arneshkeys-platform/Screenshot%202026-04-28%20000920.png" alt="3D keyboard configurator"></div>
+                                <div class="carousel-slide"><img src="images/arneshkeys-platform/Screenshot%202026-04-28%20195100.png" alt="Colorway picker"></div>
+                                <div class="carousel-slide"><img src="images/arneshkeys-platform/Screenshot%202026-04-28%20195115.png" alt="Admin dashboard"></div>
+                                <div class="carousel-slide"><img src="images/arneshkeys-platform/Screenshot%202026-04-28%20195131.png" alt="Reddit scout match"></div>
+                            </div>
+                            <button class="carousel-btn prev" aria-label="Previous image">&#8249;</button>
+                            <button class="carousel-btn next" aria-label="Next image">&#8250;</button>
+                            <div class="carousel-dots">
+                                <span class="active"></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">arnesh_keys Platform</h3>
+                        <p class="project-tagline">A 3D keyboard configurator paired with an LLM-driven scout that watches r/mechmarket 24/7 and pings me on Discord whenever a real listing matches a customer's saved build.</p>
+                        <p class="project-desc">Full-stack platform built for the ArneshKeys business. Customers design a custom keyboard in a browser-based three.js scene (215 colorways, 5 layouts); a Python service polls Reddit every 5 minutes, uses an LLM to extract structured listing data, scores against open configs with a per-component budget allocator, and posts matches to Discord. Frontend on Vercel; the scout runs in a Docker container on a self-hosted TrueNAS NAS with a 5-minute auto-pull pipeline.</p>
+                        <a href="https://arnesh-keys.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" style="margin-right: 8px;">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/ArneshDorsatwar/arnesh_keys" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            arnesh_keys
+                        </a>
+                        <div class="project-tags">
+                            <span class="tag">React 19</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">three.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">LLM</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">215</span>
+                                <span class="metric-label">Colorways</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">29</span>
+                                <span class="metric-label">Tests Passing</span>
+                            </div>
+                        </div>
+                        <p class="expand-hint"><span class="hint-dot"></span> Click the green dot above to expand the full write-up</p>
+
+                        <div class="project-writeup">
+                            <h4 class="writeup-heading">The Problem</h4>
+                            <p>Boutique mechanical keyboards live across two slow markets: <strong>group-buys</strong> with 12-to-18-month lead times, and <strong>r/mechmarket</strong>, where rare keycap sets and switches sell within minutes of being posted. Customers told me what they wanted, I wrote it on a sticky note, and by the time a matching listing appeared on Reddit at 3 a.m. it was gone. I needed a system that let customers <em>design</em> exactly what they wanted in a visual configurator and then <em>find it for them</em> automatically &mdash; without me staring at Reddit.</p>
+
+                            <h4 class="writeup-heading">The Process</h4>
+                            <p><strong>3D configurator.</strong> Built on Vite + React 19 + TypeScript with Tailwind 4. I vendored and ported keysim's three.js renderer so customers can rotate a real-time 3D model of their build &mdash; pick a layout (60% / 65% / 75% / TKL / 100%), recolor any individual row, change sub-legends across 10 scripts, and adjust scene lighting. The colorway catalog merges three upstream sources (keysim, zekth, matrixzj) into 215 GMK sets; for the ~100 sets that ship without published hex codes I wrote a <strong>RAL Design CIE-Lab &rarr; sRGB converter</strong> with D50 &rarr; D65 chromatic adaptation so the renders match real-world keycaps.</p>
+
+                            <p><strong>r/mechmarket scout.</strong> Python 3.11 service that polls Reddit's public JSON every 5 minutes (no API key required, just a polite User-Agent and rate limit). For each new post:</p>
+                            <ul class="writeup-list">
+                                <li><strong>LLM extraction:</strong> Groq <code>llama-3.1-8b-instant</code> via LiteLLM converts free-form sale posts into structured JSON (item type, brand, colorway, switch type, asking price, ship-from region).</li>
+                                <li><strong>Sold-item filtering:</strong> the same LLM call detects strikethrough markdown, <code>[SOLD]</code> tags, X-out markers, and "pending" annotations &mdash; so already-sold items don't generate false notifications.</li>
+                                <li><strong>Matching:</strong> a per-component budget allocator scores each listing against every saved customer config &mdash; board &le; 80%, keycaps &le; 50%, switches &le; 25% of the customer's total build budget.</li>
+                                <li><strong>Notification:</strong> matches are written to Postgres (Supabase, row-level security on every table) and pushed via Discord webhook + a magic-link-gated admin dashboard.</li>
+                            </ul>
+
+                            <p><strong>Test discipline.</strong> 29 unit tests covering the matcher (per-category budget caps, edge cases at the boundary), the parser (real Reddit fixtures), and sold-item detection. The matcher and parser are pure functions so I keep them under TDD &mdash; every new market quirk (a vendor I hadn't seen, a new "pending trade" phrase) starts as a failing test before it becomes a fix.</p>
+
+                            <p><strong>Self-hosted deploy.</strong> Frontend on Vercel with auto-deploy on push. The scout runs as a long-lived Docker container on my <strong>TrueNAS SCALE NAS at home</strong> &mdash; SSH deploy-key auth + a 5-minute cron auto-pull, so <code>git push</code> reaches production end-to-end with zero manual intervention. Postgres on Supabase, scout writes scoped to a service-role key.</p>
+
+                            <h4 class="writeup-heading">Successes</h4>
+                            <table class="writeup-table">
+                                <tr><th>Component</th><th>Outcome</th></tr>
+                                <tr><td>Colorway catalog</td><td>215 GMK sets across 5 layouts &mdash; 3 upstream catalogs merged with custom Pantone / RAL &rarr; sRGB conversion</td></tr>
+                                <tr><td>3D renderer</td><td>Per-row recoloring, 10 sub-legend scripts, live lighting &mdash; vendored three.js port runs at 60fps in the browser</td></tr>
+                                <tr><td>Scout cycle time</td><td>5 minutes from Reddit post to Discord ping; sold-item false-positive rate under 5%</td></tr>
+                                <tr><td>Test suite</td><td>29 unit tests on parser, matcher, and budget allocator &mdash; new market quirks caught as failing tests first</td></tr>
+                                <tr><td>Deploy pipeline</td><td><code>git push</code> to production in &le; 5 min, zero manual steps; backend self-hosted at home</td></tr>
+                            </table>
+
+                            <h4 class="writeup-heading">Failures and Roadblocks</h4>
+                            <ul class="writeup-list">
+                                <li><strong>RAL Design colors looked plastic.</strong> The first sRGB conversion did a naive Lab-to-XYZ-to-sRGB pipeline and skipped chromatic adaptation. Renders looked correct numerically but everything was 10% too cool. Fixed by adding a D50 &rarr; D65 Bradford transform before the gamut compression.</li>
+                                <li><strong>LLM-extracted prices were nonsense.</strong> Early versions of the scout would return <code>"$95 + ship"</code> as <code>95</code> and miss the "+ ship" qualifier, then match listings outside the customer's real budget. Fixed by adding shipping inference to the prompt schema and a post-validator that re-rejects any extraction with a free-text price field.</li>
+                                <li><strong>TrueNAS Docker app updates wiped state.</strong> First time I pushed an image update, the container restarted and lost its scout cursor &mdash; it re-notified on every post from the past 24 hours. Moved the cursor and dedupe set into Postgres instead of an in-container file.</li>
+                                <li><strong>Sold-item detection missed Unicode strikethrough.</strong> Some sellers cross items out with U+0336 combining strikethrough characters per glyph; my regex didn't catch those. The LLM does &mdash; one more reason this stage is LLM-first instead of rule-first.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Skills Gained</h4>
+                            <ul class="writeup-list">
+                                <li><strong>3D / WebGL:</strong> three.js scene composition, instanced mesh rendering, color-management math (Lab &harr; sRGB, chromatic adaptation), material lighting tuning.</li>
+                                <li><strong>Applied LLMs:</strong> structured-output extraction with strict JSON schemas, prompt design with negative examples for sold-item detection, latency / cost tradeoffs picking Groq <code>llama-3.1-8b</code> over GPT-class models.</li>
+                                <li><strong>Backend / Infra:</strong> Postgres row-level security, magic-link auth, Docker image building, cron-based pull-deploy on a self-hosted NAS, SSH deploy-key auth.</li>
+                                <li><strong>Test Discipline:</strong> TDD for pure-function matchers and parsers, fixture-driven testing of real-world Reddit posts, regression-first response to bug reports.</li>
+                                <li><strong>Frontend:</strong> React 19 + Tailwind 4, Vite tooling, vendoring and porting an upstream three.js codebase into a typed React app.</li>
+                            </ul>
+
+                            <h4 class="writeup-heading">Reflection &amp; What's Next</h4>
+                            <p>The platform is the second half of the ArneshKeys story &mdash; the keyboard business is the hardware side, this is the software stack that scales it. The most useful lesson came from the scout: <em>do not try to regex your way through human-written marketplace posts</em>. The LLM doesn't replace the rule-based pipeline, but it earns the first pass at every fuzzy decision (is this sold? what brand is this colorway? what's the real price after shipping?), and a typed schema plus a small test suite catches it when it gets creative. Next: real-time WebGL rendering of switch + stab feel, automatic dispatch of a quote PDF when a scout match exceeds 90% config fit, and a customer-facing &ldquo;your build status&rdquo; page tied to the same Postgres backend.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Learn Python TDD -->
                 <div class="project-card" data-aos="fade-up">
                     <div class="project-screen">
